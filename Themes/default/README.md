@@ -45,6 +45,7 @@ TODO:
 **KNOWN BUGS**
 
 * Custom DifficultyList breaks with certain combinations of edits charts
+* Many Functions of Player 3 and 4 (Along with every subsequent player) will be broken
 
 
 ACKNOWLEDGEMENTS:
