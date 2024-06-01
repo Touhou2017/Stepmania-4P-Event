@@ -4,7 +4,7 @@ This is a fork of the software mentioned beneath here,
 Please take notice of the licence change, this has been upgraded from MIT to GPL v3 (http://www.gnu.org/licenses/gpl-3.0.en.html)
 
 The main used theme is a modded version of https://github.com/freem/ultralight
-Credit to the maker!
+Credit to the maker along with the original fork maker!
 
 StepMania
 =========
