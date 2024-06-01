@@ -193,6 +193,8 @@ void ScreenSelectMusic::Init()
 		}
 		m_OptionsList[PLAYER_1].Link( &m_OptionsList[PLAYER_2] );
 		m_OptionsList[PLAYER_2].Link( &m_OptionsList[PLAYER_1] );
+		m_OptionsList[PLAYER_3].Link( &m_OptionsList[PLAYER_2] );
+		m_OptionsList[PLAYER_4].Link( &m_OptionsList[PLAYER_1] );
 	}
 
 	// this is loaded SetSong and TweenToSong
@@ -1403,10 +1405,10 @@ bool ScreenSelectMusic::MenuStart( const InputEventPlus &input )
 			 *    something better?)
 			 */
 
-			if( !GAMESTATE->IsCourseMode() && GAMESTATE->GetNumSidesJoined() == 2 )
+			if( !GAMESTATE->IsCourseMode() && GAMESTATE->GetNumSidesJoined() == 4 )
 			{
 				bool bSelectedRoutineSteps[NUM_PLAYERS], bAnySelectedRoutine = false;
-				bool bSelectedSameSteps = GAMESTATE->m_pCurSteps[PLAYER_1] == GAMESTATE->m_pCurSteps[PLAYER_2];
+				bool bSelectedSameSteps = GAMESTATE->m_pCurSteps[PLAYER_1] == GAMESTATE->m_pCurSteps[PLAYER_2] == GAMESTATE->m_pCurSteps[PLAYER_3] == GAMESTATE->m_pCurSteps[PLAYER_4];
 
 				FOREACH_HumanPlayer( p )
 				{
