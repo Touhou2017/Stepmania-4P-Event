@@ -191,7 +191,7 @@ end
 
 
 if choiceName == "Single" then -- 1 Player
-	t[#t+1] = drawNinePanelPad(3, -xshift - 14, yshift)..{
+	t[#t+1] = drawNinePanelPad(2, -xshift - 14, yshift)..{
 		OffCommand=cmd(linear,0.2; diffusealpha,0)
 	}
 
@@ -199,7 +199,18 @@ elseif choiceName == "Versus" then -- 2 Players
 	t[#t+1] = drawNinePanelPad(2,-xshift - WideScale(70,80), yshift)..{
 		OffCommand=cmd(sleep,0.12; linear,0.2; diffusealpha,0)
 	}
-	t[#t+1] = drawNinePanelPad(5, xshift - WideScale(70,80), yshift)..{
+	t[#t+1] = drawNinePanelPad(4, xshift - WideScale(70,80), yshift)..{
+		OffCommand=cmd(sleep,0.24; linear,0.2; diffusealpha,0)
+	}
+
+elseif choiceName == "Trio" then -- 3 Players
+	t[#t+1] = drawNinePanelPad(2, -xshift*2 - WideScale(50,60), yshift)..{
+		OffCommand=cmd(sleep,0.12; linear,0.2; diffusealpha,0)
+	}
+	t[#t+1] = drawNinePanelPad(4, -xshift - 8, yshift)..{
+		OffCommand=cmd(sleep,0.24; linear,0.2; diffusealpha,0)
+	}
+	t[#t+1] = drawNinePanelPad(6, xshift*2 - WideScale(50,60), yshift)..{
 		OffCommand=cmd(sleep,0.24; linear,0.2; diffusealpha,0)
 	}
 
@@ -207,36 +218,36 @@ elseif choiceName == "Quad" then -- 4 Players
 	t[#t+1] = drawNinePanelPad(2, -xshift - WideScale(60,70), yshift*2.33)..{
 		OffCommand=cmd(sleep,0.12; linear,0.2; diffusealpha,0)
 	}
-	t[#t+1] = drawNinePanelPad(5, xshift - WideScale(60,70), yshift*2.33)..{
+	t[#t+1] = drawNinePanelPad(4, xshift - WideScale(60,70), yshift*2.33)..{
 		OffCommand=cmd(sleep,0.24; linear,0.2; diffusealpha,0)
 	}
-	t[#t+1] = drawNinePanelPad(7, -xshift - WideScale(60,70), yshift)..{
+	t[#t+1] = drawNinePanelPad(6, -xshift - WideScale(60,70), yshift)..{
 		OffCommand=cmd(sleep,0.12; linear,0.2; diffusealpha,0)
 	}
-	t[#t+1] = drawNinePanelPad(9, xshift - WideScale(60,70), yshift)..{
+	t[#t+1] = drawNinePanelPad(8, xshift - WideScale(60,70), yshift)..{
 		OffCommand=cmd(sleep,0.24; linear,0.2; diffusealpha,0)
 	}
 
- elseif choiceName == "Sextuple" then -- 6 Players
-	t[#t+1] = drawNinePanelPad(2, -xshift*2 - WideScale(50,60), yshift*2.33)..{
-		OffCommand=cmd(sleep,0.12; linear,0.2; diffusealpha,0)
-	}
-	t[#t+1] = drawNinePanelPad(5, -xshift - 8, yshift*2.33)..{
-		OffCommand=cmd(sleep,0.24; linear,0.2; diffusealpha,0)
-	}
-	t[#t+1] = drawNinePanelPad(7, xshift*2 - WideScale(50,60), yshift*2.33)..{
-		OffCommand=cmd(sleep,0.24; linear,0.2; diffusealpha,0)
-	}
-	t[#t+1] = drawNinePanelPad(9, -xshift*2 - WideScale(50,60), yshift)..{
-		OffCommand=cmd(sleep,0.12; linear,0.2; diffusealpha,0)
-	}
-	t[#t+1] = drawNinePanelPad(11, -xshift - 8, yshift)..{
-		OffCommand=cmd(sleep,0.24; linear,0.2; diffusealpha,0)
-	}
-	t[#t+1] = drawNinePanelPad(13, xshift*2 - WideScale(50,60), yshift)..{
-		OffCommand=cmd(sleep,0.24; linear,0.2; diffusealpha,0)
-	}
-	
+-- elseif choiceName == "Sextuple" then -- 6 Players
+--	t[#t+1] = drawNinePanelPad(2, -xshift*2 - WideScale(50,60), yshift*2.33)..{
+--		OffCommand=cmd(sleep,0.12; linear,0.2; diffusealpha,0)
+--	}
+--	t[#t+1] = drawNinePanelPad(5, -xshift - 8, yshift*2.33)..{
+--		OffCommand=cmd(sleep,0.24; linear,0.2; diffusealpha,0)
+--	}
+--	t[#t+1] = drawNinePanelPad(7, xshift*2 - WideScale(50,60), yshift*2.33)..{
+--		OffCommand=cmd(sleep,0.24; linear,0.2; diffusealpha,0)
+--	}
+--	t[#t+1] = drawNinePanelPad(9, -xshift*2 - WideScale(50,60), yshift)..{
+--		OffCommand=cmd(sleep,0.12; linear,0.2; diffusealpha,0)
+--	}
+--	t[#t+1] = drawNinePanelPad(11, -xshift - 8, yshift)..{
+--		OffCommand=cmd(sleep,0.24; linear,0.2; diffusealpha,0)
+--	}
+--	t[#t+1] = drawNinePanelPad(13, xshift*2 - WideScale(50,60), yshift)..{
+--		OffCommand=cmd(sleep,0.24; linear,0.2; diffusealpha,0)
+--	}
+
 end
 
 return t
