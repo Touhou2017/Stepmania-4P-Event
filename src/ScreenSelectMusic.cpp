@@ -527,7 +527,19 @@ bool ScreenSelectMusic::Input( const InputEventPlus &input )
 	// Handle late joining
 	// If the other player is allowed to join on the extra stage, then the
 	// summary screen will crash on invalid stage stats. -Kyz
-	if(m_SelectionState != SelectionState_Finalized &&
+	//if(m_SelectionState != SelectionState_Finalized &&
+	//
+	// Joining of players 3 and 4 currently doesn't work, apparently because
+	// GameState::JoinPlayer doesn't find a 3-player style.  For now, exclude
+	// them from this case rather than trying to fix the underlying problem,
+	// which might break other things.
+	// ~ Matt 2017-01-17
+	//
+	// Adding input for Player 3 and 4 probably doesn't make a change, but I 
+	// decided to include it in, just in case it does
+	// > Touhou2017
+	if((input.pn == PLAYER_1 || input.pn == PLAYER_2 || input.pn == PLAYER_3 || input.pn == PLAYER_4) &&
+		m_SelectionState != SelectionState_Finalized &&
 		input.MenuI == GAME_BUTTON_START && input.type == IET_FIRST_PRESS &&
 		!GAMESTATE->IsAnExtraStage() && GAMESTATE->JoinInput(input.pn))
 	{
