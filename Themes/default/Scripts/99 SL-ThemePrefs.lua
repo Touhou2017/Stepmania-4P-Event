@@ -55,9 +55,10 @@ local SL_CustomPrefs =
 			THEME:GetString("ScreenSelectStyle", "Single"),
 			THEME:GetString("ScreenSelectStyle", "Versus"),
 			THEME:GetString("ScreenSelectStyle", "Double"),
+			THEME:GetString("ScreenSelectStyle", "Trio"),
 			THEME:GetString("ScreenSelectStyle", "Quad")
 		},
-		Values 	= { "none", "single", "versus", "double", "quad" }
+		Values 	= { "none", "single", "versus", "double", "trio", "quad" }
 	},
 	VisualTheme =
 	{
