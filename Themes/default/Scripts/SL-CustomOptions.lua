@@ -10,6 +10,8 @@ function OptionRowEditorNoteskin()
 		LoadSelections = function(self, list, pn)
 			local skin = PREFSMAN:GetPreference("EditorNoteSkinP1") or
 				PREFSMAN:GetPreference("EditorNoteSkinP2") or
+				PREFSMAN:GetPreference("EditorNoteSkinP3") or
+				PREFSMAN:GetPreference("EditorNoteSkinP4") or
 				THEME:GetMetric("Common", "DefaultNoteSkinName")
 			if not skin then return end
 
@@ -21,6 +23,8 @@ function OptionRowEditorNoteskin()
 				if list[i] then
 					PREFSMAN:SetPreference("EditorNoteSkinP1", skins[i])
 					PREFSMAN:SetPreference("EditorNoteSkinP2", skins[i])
+					PREFSMAN:SetPreference("EditorNoteSkinP3", skins[i])
+					PREFSMAN:SetPreference("EditorNoteSkinP4", skins[i])
 					break
 				end
 			end
