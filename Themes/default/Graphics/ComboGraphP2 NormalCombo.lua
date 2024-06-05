@@ -1,4 +1,4 @@
-local number = (SL.Global.ActiveColorIndex+2)%12 + 1
+local number = (SL.Global.ActiveColorIndex+4)%12 + 1
 if number < 10 then number = "0"..tostring(number) end
 
 return Def.Sprite {
