@@ -36,9 +36,13 @@ if SL.Global.GameMode ~= "Casual" and SL.Global.GameMode ~= "StomperZ" then
 				if IsPlayingDouble or PREFSMAN:GetPreference("Center1Player") and GAMESTATE:GetNumSidesJoined() == 1 then
 					self:stretchto(0,0,_screen.w,_screen.h)
 				elseif not IsPlayingDouble and Player == PLAYER_1 then
-					self:faderight(0.1):stretchto(0,0,_screen.cx,_screen.h)
+					self:fadeleft(0.1):faderight(0.1):stretchto(0,0,_screen.cx*0.50,_screen.h)
 				elseif not IsPlayingDouble and Player == PLAYER_2 then
-					self:fadeleft(0.1):stretchto(_screen.cx,0,_screen.w,_screen.h)
+					self:fadeleft(0.1):faderight(0.1):stretchto(215,0,_screen.cx,_screen.h)
+				elseif not IsPlayingDouble and Player == PLAYER_3 then
+					self:fadeleft(0.1):faderight(0.1):stretchto(_screen.cx,0,640,_screen.w,_screen.h)
+				elseif not IsPlayingDouble and Player == PLAYER_4 then
+					self:fadeleft(0.1):faderight(1):stretchto(880,0,_screen.cx,640,_screen.h)
 				end
 			end,
 			HealthStateChangedMessageCommand=function(self, param)
