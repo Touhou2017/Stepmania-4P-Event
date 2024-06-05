@@ -125,12 +125,16 @@ local pd = Def.ActorFrame{
 		end
 
 		if player == PLAYER_1 then
-			self:x(_screen.w * 0.25 - 5)
+			self:x(_screen.w * 0.20 - 5)
 		elseif player == PLAYER_2 then
-			self:x( _screen.w * 0.75 + 5)
+			self:x( _screen.w * 0.40 - 2)
+		elseif player == PLAYER_3 then
+			self:x( _screen.w * 0.60 + 2)
+		elseif player == PLAYER_4 then
+			self:x( _screen.w * 0.80 + 5)
 		end
 
-		self:y(_screen.h/2 + 5)
+		self:y(_screen.h/4 + 5)
 	end,
 
 	PlayerJoinedMessageCommand=function(self, params)
