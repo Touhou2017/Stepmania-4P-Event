@@ -66,8 +66,9 @@ local Overrides = {
 
 				-- Apologies, midiman. :(
 				local stock = {
-					"default", "delta", "easyv2", "exactv2", "midi-note",
-					"midi-note-3d", "midi-routine-p1", "midi-routine-p2",
+					"cel", "default", "delta", "easyv2", "exactv2",
+					"midi-note", "midi-note-3d", "midi-routine-p1",
+					"midi-routine-p2", "midi-routine-p3", "midi-routine-p4",
 					"midi-solo", "midi-vivid", "midi-vivid-3d", "retro",
 					"retrobar", "retrobar-splithand_whiteblue"
 				}
@@ -349,7 +350,7 @@ local Overrides = {
 	-------------------------------------------------------------------------
 	DecentsWayOffs = {
 		Choices = function() return { "On", "Decents Only", "Off" } end,
-		OneChoiceForAllPlayers = true,
+		OneChoiceForAllPlayers = false,
 		LoadSelections = function(self, list, pn)
 			local choice = SL.Global.ActiveModifiers.DecentsWayOffs or "On"
 			local i = FindInTable(choice, self.Choices) or 1
@@ -478,7 +479,51 @@ local Overrides = {
 				if list[2] then SL.Global.ScreenAfter.PlayerOptions2 = "ScreenPlayerOptions" end
 			end
 		end
-	}
+	},
+	-------------------------------------------------------------------------
+	ScreenAfterPlayerOptions3 = {
+		Choices = function()
+			if SL.Global.MenuTimer.ScreenSelectMusic > 1 then
+				return { 'Gameplay', 'Select Music', 'Extra Modifiers' }
+			else
+				return { 'Gameplay', 'Extra Modifiers' }
+			end
+		end,
+		OneChoiceForAllPlayers = true,
+		LoadSelections = function(self, list, pn) list[1] = true end,
+		SaveSelections = function(self, list, pn)
+			if SL.Global.MenuTimer.ScreenSelectMusic > 1 then
+				if list[1] then SL.Global.ScreenAfter.PlayerOptions3 = Branch.GameplayScreen() end
+				if list[2] then SL.Global.ScreenAfter.PlayerOptions3 = SelectMusicOrCourse() end
+				if list[3] then SL.Global.ScreenAfter.PlayerOptions3 = "ScreenPlayerOptions4" end
+			else
+				if list[1] then SL.Global.ScreenAfter.PlayerOptions3 = Branch.GameplayScreen() end
+				if list[2] then SL.Global.ScreenAfter.PlayerOptions3 = "ScreenPlayerOptions4" end
+			end
+		end
+	},
+	-------------------------------------------------------------------------
+	ScreenAfterPlayerOptions4 = {
+		Choices = function()
+			if SL.Global.MenuTimer.ScreenSelectMusic > 1 then
+				return { 'Gameplay', 'Select Music', 'Extra Modifiers' }
+			else
+				return { 'Gameplay', 'Extra Modifiers' }
+			end
+		end,
+		OneChoiceForAllPlayers = true,
+		LoadSelections = function(self, list, pn) list[1] = true end,
+		SaveSelections = function(self, list, pn)
+			if SL.Global.MenuTimer.ScreenSelectMusic > 1 then
+				if list[1] then SL.Global.ScreenAfter.PlayerOptions4 = Branch.GameplayScreen() end
+				if list[2] then SL.Global.ScreenAfter.PlayerOptions4 = SelectMusicOrCourse() end
+				if list[3] then SL.Global.ScreenAfter.PlayerOptions4 = "ScreenPlayerOptions3" end
+			else
+				if list[1] then SL.Global.ScreenAfter.PlayerOptions4 = Branch.GameplayScreen() end
+				if list[2] then SL.Global.ScreenAfter.PlayerOptions4 = "ScreenPlayerOptions3" end
+			end
+		end
+	},
 	-------------------------------------------------------------------------
 }
 
