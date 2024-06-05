@@ -10,13 +10,26 @@ return Def.ActorFrame{
 		InitCommand=cmd(stretchto,515,78,615,402;diffuse,PlayerColor(PLAYER_2)),
 		OnCommand=cmd(diffusealpha,0;linear,.5;diffusealpha,1)
 	},
+	Def.Quad{
+		InitCommand=cmd(stretchto,615,78,715,402;diffuse,PlayerColor(PLAYER_3)),
+		OnCommand=cmd(diffusealpha,0;linear,.5;diffusealpha,1)
+	},
+	Def.Quad{
+		InitCommand=cmd(stretchto,715,78,815,402;diffuse,PlayerColor(PLAYER_4)),
+		OnCommand=cmd(diffusealpha,0;linear,.5;diffusealpha,1)
+	},
 
 
 	--masking quads
 	Def.Quad{
 		InitCommand=cmd(stretchto,0,_screen.cy-162,_screen.w,0; MaskSource, false; )
 	},
-
+	Def.Quad{
+		InitCommand=cmd(stretchto,0,_screen.cy-53,_screen.w,0; MaskSource, false; )
+	},
+	Def.Quad{
+		InitCommand=cmd(stretchto,0,_screen.cy+53,_screen.w,_screen.h; MaskSource, false; )
+	},
 	Def.Quad{
 		InitCommand=cmd(stretchto,0,_screen.cy+162,_screen.w,_screen.h; MaskSource, false; )
 	},
@@ -27,6 +40,14 @@ return Def.ActorFrame{
 		InitCommand=cmd(diffuse,color("0.6,0.6,0.6,1"); zoomto, _screen.w, 2 ),
 		OnCommand=cmd(x,_screen.cx;y,_screen.cy-163; diffusealpha,0; linear,0.5; diffusealpha,1)
 	},
+	Def.Quad{
+		InitCommand=cmd(diffuse,color("0.6,0.6,0.6,1"); zoomto, _screen.w, 2 ),
+		OnCommand=cmd(x,_screen.cx;y,_screen.cy-54; diffusealpha,0; linear,0.5; diffusealpha,1)
+	},
+	Def.Quad{
+		InitCommand=cmd(diffuse,color("0.6,0.6,0.6,1");  zoomto, _screen.w, 2),
+		OnCommand=cmd(x,_screen.cx;y,_screen.cy+54; diffusealpha,0; linear,0.5; diffusealpha,1)
+	}
 	Def.Quad{
 		InitCommand=cmd(diffuse,color("0.6,0.6,0.6,1");  zoomto, _screen.w, 2),
 		OnCommand=cmd(x,_screen.cx;y,_screen.cy+163; diffusealpha,0; linear,0.5; diffusealpha,1)
