@@ -2,7 +2,7 @@ local t = Def.ActorFrame{
 	InitCommand=function(self) self:draworder(1) end
 }
 
-for player in ivalues({PLAYER_1, PLAYER_2}) do
+for player in ivalues({PLAYER_1, PLAYER_2, PLAYER_3, PLAYER_4}) do
 	-- StepArtist Box
 	t[#t+1] = LoadActor("./StepArtist.lua", PLAYER_1	)
 
