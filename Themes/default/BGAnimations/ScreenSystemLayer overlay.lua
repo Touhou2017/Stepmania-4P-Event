@@ -35,8 +35,9 @@ t[#t+1] = LoadActor(THEME:GetPathB("ScreenSystemLayer","aux"));
 t[#t+1] = Def.ActorFrame {
  	CreditsText( PLAYER_1 );
 	CreditsText( PLAYER_2 );
+	CreditsText( PLAYER_3 );
+	CreditsText( PLAYER_4 );
 };
-
 
 -- SystemMessage Text
 t[#t+1] = Def.ActorFrame {
