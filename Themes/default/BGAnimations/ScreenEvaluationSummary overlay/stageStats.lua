@@ -123,13 +123,24 @@ for player in ivalues(Players) do
 		align1 = right
 		align2 = left
 	elseif player == PLAYER_2 then
+		col1x = -30
+		col2x = _screen.w/2.5
+		gradex = _screen.w/3.33
+		align1= left
+		align2 = right
+	elseif player == PLAYER_3 then
+		col1x = 30
+		col2x = _screen.w/2.5
+		gradex = _screen.w/3.33
+		align1= left
+		align2 = right
+	elseif player == PLAYER_4 then
 		col1x = 90
 		col2x = _screen.w/2.5
 		gradex = _screen.w/3.33
 		align1= left
 		align2 = right
 	end
-
 
 	local PlayerStatsAF = Def.ActorFrame{
 		DrawStageCommand=function(self)
