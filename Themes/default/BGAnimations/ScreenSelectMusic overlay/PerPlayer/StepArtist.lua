@@ -42,6 +42,18 @@ return Def.ActorFrame{
 
 			self:y(_screen.cy + 97)
 			self:x( _screen.cx - 210)
+			
+		elseif player == PLAYER_3 then
+
+			self:y( _screen.h*0.320)
+			self:x( _screen.w*0.32)
+			
+		elseif player == PLAYER_4 then
+
+			self:y(_screen.cy + 47)
+			self:x( _screen.cx - 210)
+			
+			
 		end
 
 		if GAMESTATE:IsHumanPlayer(player) then
