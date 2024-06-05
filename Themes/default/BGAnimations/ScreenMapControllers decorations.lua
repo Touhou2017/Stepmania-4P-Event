@@ -1,7 +1,7 @@
 local headerHeight = 50;
 
 local function PlayerText(pn)
-	local pnumber = pn == PLAYER_1 and "1" or "2";
+	local pnumber = pn == PLAYER_1 and "1" or "2" or "3" or "4";
 	local xpos = pn == PLAYER_1 and 0.5 or 1.5;
 
 	return LoadFont("_wendy small")..{
@@ -44,11 +44,31 @@ local t = Def.ActorFrame{
 	Def.ActorFrame{
 		Def.Quad{
 			Name="P2bg";
-			InitCommand=cmd(x,SCREEN_RIGHT;y,SCREEN_TOP;horizalign,right;vertalign,top;zoomto,_screen.cx,headerHeight;diffuse,PlayerColor(PLAYER_1););
+			InitCommand=cmd(x,SCREEN_RIGHT;y,SCREEN_TOP;horizalign,right;vertalign,top;zoomto,_screen.cx,headerHeight;diffuse,PlayerColor(PLAYER_2););
 			OnCommand=cmd(diffusealpha,0.75;);
 		};
 
 		PlayerText(PLAYER_2);
+	};
+
+	Def.ActorFrame{
+		Def.Quad{
+			Name="P3bg";
+			InitCommand=cmd(x,SCREEN_RIGHT;y,SCREEN_TOP;horizalign,right;vertalign,top;zoomto,_screen.cx,headerHeight;diffuse,PlayerColor(PLAYER_3););
+			OnCommand=cmd(diffusealpha,0.75;);
+		};
+
+		PlayerText(PLAYER_3);
+	};
+	
+	Def.ActorFrame{
+		Def.Quad{
+			Name="P4bg";
+			InitCommand=cmd(x,SCREEN_RIGHT;y,SCREEN_TOP;horizalign,right;vertalign,top;zoomto,_screen.cx,headerHeight;diffuse,PlayerColor(PLAYER_4););
+			OnCommand=cmd(diffusealpha,0.75;);
+		};
+
+		PlayerText(PLAYER_4);
 	};
 
 	Def.Quad{
