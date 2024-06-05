@@ -1,5 +1,5 @@
 local Players = GAMESTATE:GetHumanPlayers()
-local NumPanes = SL.Global.GameMode=="Casual" and 1 or 4
+local NumPanes = SL.Global.GameMode=="Casual" and 1 or 2 or 3 or 4
 
 -- Start by loading actors that would be the same whether 1 or 2 players are joined.
 local t = Def.ActorFrame{
@@ -150,13 +150,13 @@ for player in ivalues(Players) do
 				self:x((player == PLAYER_1 and -412) or -412)
 				self:zoomto(20,20)
 				if player == PLAYER_1 then 
-					self:diffuse(DifficultyIndexColor(2))
+					self:diffuse(DifficultyIndexColor(1))
 				elseif player == PLAYER_2 then
 					self:diffuse(DifficultyIndexColor(5))
 				elseif player == PLAYER_3 then
 					self:diffuse(DifficultyIndexColor(7))
 				elseif player == PLAYER_4 then
-					self:diffuse(DifficultyIndexColor(9))
+					self:diffuse(DifficultyIndexColor(10))
 				elseif player == PLAYER_5 then
 					self:diffuse(DifficultyIndexColor(11))
 				elseif player == PLAYER_6 then
