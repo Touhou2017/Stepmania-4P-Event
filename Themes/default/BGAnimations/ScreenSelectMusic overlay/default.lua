@@ -178,7 +178,7 @@ local t = Def.ActorFrame{
 				InitCommand=function(self)
 					self:zoomto(_screen.w*0.085, _screen.h*0.12)
 					self:xy(_screen.w*0.05, _screen.h*0.9)
-					self:diffuse(DifficultyIndexColor(2) )
+					self:diffuse(DifficultyIndexColor(1) )
 				end
 			},
 			
@@ -211,7 +211,7 @@ local t = Def.ActorFrame{
 					self:zoomto(_screen.w*0.085, _screen.h*0.12)
 					self:xy(_screen.w*0.47, _screen.h*0.9)
 					if #Players > 3 then
-						self:diffuse(DifficultyIndexColor(9) )
+						self:diffuse(DifficultyIndexColor(10) )
 					else
 						self:visible(0)
 					end
@@ -365,7 +365,7 @@ local t = Def.ActorFrame{
 				InitCommand=function(self)
 					self:zoomto(_screen.w*0.085, _screen.h*0.12)
 					self:xy(_screen.w*0.05, _screen.h*0.7)
-					self:diffuse(DifficultyIndexColor(2) )
+					self:diffuse(DifficultyIndexColor(1) )
 				end
 			},
 			
@@ -398,7 +398,7 @@ local t = Def.ActorFrame{
 					self:zoomto(_screen.w*0.085, _screen.h*0.12)
 					self:xy(_screen.w*0.47, _screen.h*0.7)
 					if #Players > 3 then
-						self:diffuse(DifficultyIndexColor(9) )
+						self:diffuse(DifficultyIndexColor(10) )
 					else
 						self:visible(0)
 					end
@@ -457,9 +457,9 @@ local t = Def.ActorFrame{
 			Font="Common normal",
 			OnCommand=function(self)
 				DiffP1_text = self
-				self:diffuse(color("#272150"))
-				self:zoom(0.9):xy(_screen.w*0.05, _screen.h*0.7)
-				self:settext( ToEnumShortString(GAMESTATE:GetCurrentSteps(PLAYER_1):GetDifficulty()) .." "..GAMESTATE:GetCurrentSteps(PLAYER_1):GetMeter()  )
+					self:diffuse(color("#272150"))
+					self:zoom(0.9):xy(_screen.w*0.05, _screen.h*0.7)
+					self:settext( ToEnumShortString(GAMESTATE:GetCurrentSteps(PLAYER_1):GetDifficulty()) .." "..GAMESTATE:GetCurrentSteps(PLAYER_1):GetMeter()  )
 			end,
 		},
 		
