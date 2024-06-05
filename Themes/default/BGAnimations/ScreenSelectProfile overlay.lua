@@ -40,7 +40,7 @@ end
 function LoadPlayerStuff(Player)
 	local t = {}
 
-	local pn = (Player == PLAYER_1) and 1 or 2
+	local pn = (Player == PLAYER_1) and 1 or 2 or 3 or 4
 
 
 	t[#t+1] = Def.ActorFrame {
@@ -94,7 +94,7 @@ function LoadPlayerStuff(Player)
 end;
 
 function UpdateInternal3(self, Player)
-	local pn = (Player == PLAYER_1) and 1 or 2;
+	local pn = (Player == PLAYER_1) and 1 or 2 or 3 or 4;
 	local frame = self:GetChild(string.format('P%uFrame', pn));
 	local scroller = frame:GetChild('Scroller');
 	local seltext = frame:GetChild('SelectedProfileText');
@@ -205,12 +205,14 @@ local t = Def.ActorFrame {
 	UpdateInternal2Command=function(self)
 		UpdateInternal3(self, PLAYER_1);
 		UpdateInternal3(self, PLAYER_2);
+		UpdateInternal3(self, PLAYER_3);
+		UpdateInternal3(self, PLAYER_4);
 	end;
 
 	children = {
 		Def.ActorFrame {
 			Name = 'P1Frame';
-			InitCommand=cmd(x,SCREEN_CENTER_X-160;y,SCREEN_CENTER_Y);
+			InitCommand=cmd(x,SCREEN_CENTER_X-320;y,SCREEN_CENTER_Y);
 			OnCommand=cmd(zoom,0;bounceend,0.35;zoom,1);
 			OffCommand=cmd(bouncebegin,0.35;zoom,0);
 			PlayerJoinedMessageCommand=function(self,param)
@@ -222,7 +224,7 @@ local t = Def.ActorFrame {
 		};
 		Def.ActorFrame {
 			Name = 'P2Frame';
-			InitCommand=cmd(x,SCREEN_CENTER_X+160;y,SCREEN_CENTER_Y);
+			InitCommand=cmd(x,SCREEN_CENTER_X-110;y,SCREEN_CENTER_Y);
 			OnCommand=cmd(zoom,0;bounceend,0.35;zoom,1);
 			OffCommand=cmd(bouncebegin,0.35;zoom,0);
 			PlayerJoinedMessageCommand=function(self,param)
@@ -231,6 +233,30 @@ local t = Def.ActorFrame {
 				end;
 			end;
 			children = LoadPlayerStuff(PLAYER_2);
+		};
+		Def.ActorFrame {
+			Name = 'P3Frame';
+			InitCommand=cmd(x,SCREEN_CENTER_X+110;y,SCREEN_CENTER_Y);
+			OnCommand=cmd(zoom,0;bounceend,0.35;zoom,1);
+			OffCommand=cmd(bouncebegin,0.35;zoom,0);
+			PlayerJoinedMessageCommand=function(self,param)
+				if param.Player == PLAYER_3 then
+					(cmd(;zoom,1.15;bounceend,0.175;zoom,1.0;))(self);
+				end;
+			end;
+			children = LoadPlayerStuff(PLAYER_3);
+		};
+		Def.ActorFrame {
+			Name = 'P4Frame';
+			InitCommand=cmd(x,SCREEN_CENTER_X+320;y,SCREEN_CENTER_Y);
+			OnCommand=cmd(zoom,0;bounceend,0.35;zoom,1);
+			OffCommand=cmd(bouncebegin,0.35;zoom,0);
+			PlayerJoinedMessageCommand=function(self,param)
+				if param.Player == PLAYER_4 then
+					(cmd(zoom,1.15;bounceend,0.175;zoom,1.0;))(self);
+				end;
+			end;
+			children = LoadPlayerStuff(PLAYER_4);
 		};
 		-- sounds
 		LoadActor( THEME:GetPathS("Common","start") )..{
