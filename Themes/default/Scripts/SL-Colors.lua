@@ -1,8 +1,8 @@
 function PlayerColor( pn )
-	if pn == PLAYER_1 then return DifficultyIndexColor(2) end
-	if pn == PLAYER_2 then return DifficultyIndexColor(4) end
-	if pn == PLAYER_3 then return DifficultyIndexColor(6) end
-	if pn == PLAYER_4 then return DifficultyIndexColor(8) end
+	if pn == PLAYER_1 then return DifficultyIndexColor(1) end
+	if pn == PLAYER_2 then return DifficultyIndexColor(5) end
+	if pn == PLAYER_3 then return DifficultyIndexColor(7) end
+	if pn == PLAYER_4 then return DifficultyIndexColor(10) end
 	return color("1,1,1,1")
 end
 
