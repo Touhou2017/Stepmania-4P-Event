@@ -255,9 +255,6 @@ for i, column in ipairs( arrow.columns[game] ) do
 	}
 end
 
-
-
-
 local function YieldStepPattern(i, dir)
 
 	local step = Def.ActorFrame{
