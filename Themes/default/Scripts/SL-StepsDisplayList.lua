@@ -42,25 +42,25 @@ function GetStepsToDisplay(AllAvailableSteps)
 	if GAMESTATE:IsPlayerEnabled(PLAYER_2) then
 		currentStepsP2 = GAMESTATE:GetCurrentSteps(PLAYER_2)
 	end
-
+	
 	if GAMESTATE:IsPlayerEnabled(PLAYER_3) then
-		currentStepsP1 = GAMESTATE:GetCurrentSteps(PLAYER_3)
+		currentStepsP3 = GAMESTATE:GetCurrentSteps(PLAYER_3)
 	end
 
 	if GAMESTATE:IsPlayerEnabled(PLAYER_4) then
-		currentStepsP2 = GAMESTATE:GetCurrentSteps(PLAYER_4)
+		currentStepsP4 = GAMESTATE:GetCurrentSteps(PLAYER_4)
 	end
 
 	-- if only one player is joined
-	if (currentStepsP1 and not currentStepsP2) or (currentStepsP2 and not currentStepsP1) or (currentStepsP3 and not currentStepsP1) or (currentStepsP4 and not currentStepsP1) then
+	if (currentStepsP1 and not currentStepsP2 and not currentStepsP3 and not currentStepsP4) or (currentStepsP2 and not currentStepsP1 and not currentStepsP3 and not currentStepsP4) (currentStepsP3 and not currentStepsP1 and not currentStepsP2 and not currentStepsP4) or (currentStepsP4 and not currentStepsP1 and not currentStepsP2 and not currentStepsP3) then
 
-		if (currentStepsP1 and not currentStepsP2) then
+		if (currentStepsP1 and not currentStepsP2 and not currentStepsP3 and not currentStepsP4) then
 			currentSteps = currentStepsP1
-		elseif (currentStepsP2 and not currentStepsP1) then
+		elseif (currentStepsP2 and not currentStepsP1 and not currentStepsP3 and not currentStepsP4) then
 			currentSteps = currentStepsP2
-		elseif (currentStepsP3 and not currentStepsP1) then
+		elseif (currentStepsP3 and not currentStepsP1 and not currentStepsP2 and not currentStepsP4) then
 			currentSteps = currentStepsP3
-		elseif (currentStepsP4 and not currentStepsP1) then
+		elseif (currentStepsP4 and not currentStepsP1 and not currentStepsP2 and not currentStepsP3) then
 			currentSteps = currentStepsP4
 		end
 
@@ -111,9 +111,9 @@ function GetStepsToDisplay(AllAvailableSteps)
 	-- This can get complicated if P1 is on beginner and P2 is on an edit
 	-- AND there is a full range of charts between
 	-- we'll have to hide SOMETHING...
-	elseif (currentStepsP1 and currentStepsP2 and currentStepsP3 and currentStepsP4) then
+	elseif (currentStepsP1 and currentStepsP2) then
 
-		if not currentStepsP1:IsAnEdit() and not currentStepsP2:IsAnEdit() and not currentStepsP3:IsAnEdit() and not currentStepsP4:IsAnEdit() then
+		if not currentStepsP1:IsAnEdit() and not currentStepsP2:IsAnEdit() then
 			for k,chart in pairs(StepsToShow) do
 				if chart:IsAnEdit() then
 					StepsToShow[k] = nil
@@ -138,11 +138,11 @@ function GetStepsToDisplay(AllAvailableSteps)
 			if chart == currentStepsP2 then
 				currentIndexP2 = k
 			end
-
+			
 			if chart == currentStepsP3 then
 				currentIndexP3 = k
 			end
-
+			
 			if chart == currentStepsP4 then
 				currentIndexP4 = k
 			end
@@ -153,16 +153,19 @@ function GetStepsToDisplay(AllAvailableSteps)
 			local difference = math.abs(currentIndexP1-currentIndexP2-currentIndexP3-currentIndexP4)
 
 			local greaterIndex, lesserIndex
-			if currentIndexP1 > currentIndexP2 and currentIndexP3 and currentIndexP4 then
+				if currentIndexP1 > currentIndexP2 and currentIndexP3 and currentIndexP4 then
 				greaterIndex = currentIndexP1
 				lesserIndex = currentIndexP2 and currentIndexP3 and currentIndexP4
-			else
+				
+			else if currentIndexP2 > currentIndexP1 and currentIndexP3 and currentIndexP4 then
 				greaterIndex = currentIndexP2
 				lesserIndex = currentIndexP1 and currentIndexP3 and currentIndexP4
-			else
+				
+			else if currentIndexP3 > currentIndexP1 and currentIndexP2 and currentIndexP4 then
 				greaterIndex = currentIndexP3
 				lesserIndex = currentIndexP1 and currentIndexP2 and currentIndexP4
-			else
+				
+			else if currentIndexP4 > currentIndexP1 and currentIndexP2 and currentIndexP3 then
 				greaterIndex = currentIndexP4
 				lesserIndex = currentIndexP1 and currentIndexP2 and currentIndexP3
 			end
