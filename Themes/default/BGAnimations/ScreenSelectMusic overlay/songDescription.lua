@@ -13,6 +13,10 @@ local t = Def.ActorFrame{
 		CurrentTrailP1ChangedMessageCommand=cmd(playcommand,"Set"),
 		CurrentStepsP2ChangedMessageCommand=cmd(playcommand,"Set"),
 		CurrentTrailP2ChangedMessageCommand=cmd(playcommand,"Set"),
+		CurrentStepsP3ChangedMessageCommand=cmd(playcommand,"Set"),
+		CurrentTrailP3ChangedMessageCommand=cmd(playcommand,"Set"),
+		CurrentStepsP4ChangedMessageCommand=cmd(playcommand,"Set"),
+		CurrentTrailP4ChangedMessageCommand=cmd(playcommand,"Set"),
 
 		-- background for Artist, BPM, and Song Length
 		Def.Quad{
