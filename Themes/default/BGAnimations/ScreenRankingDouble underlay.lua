@@ -10,7 +10,14 @@ return Def.ActorFrame{
 	Def.Quad{
 		OnCommand=cmd(stretchto,515,78,615,402;diffuse,PlayerColor(PLAYER_2));
 	};
-
+	
+	Def.Quad{
+		OnCommand=cmd(stretchto,615,78,715,402;diffuse,PlayerColor(PLAYER_3));
+	};
+	
+	Def.Quad{
+		OnCommand=cmd(stretchto,715,78,815,402;diffuse,PlayerColor(PLAYER_4));
+	};
 
 	--masking quads
 	--top mask
@@ -26,11 +33,19 @@ return Def.ActorFrame{
 	
 	--the gray bars
 	Def.Quad{
-		InitCommand=cmd(diffuse,color("0.6,0.6,0.6,1"); zoomto, _screen.w, 2 );
+		InitCommand=cmd(diffuse,color("0.6,0.6,0.6,1"); zoomto, _screen.w, 2);
 		OnCommand=cmd(x,_screen.cx;y,_screen.cy-163;);
 	};
 	Def.Quad{
-		InitCommand=cmd(diffuse,color("0.6,0.6,0.6,1");  zoomto, _screen.w, 2);
+		InitCommand=cmd(diffuse,color("0.6,0.6,0.6,1"); zoomto, _screen.w, 2);
+		OnCommand=cmd(x,_screen.cx;y,_screen.cy-54;);
+	};
+	Def.Quad{
+		InitCommand=cmd(diffuse,color("0.6,0.6,0.6,1"); zoomto, _screen.w, 2);
+		OnCommand=cmd(x,_screen.cx;y,_screen.cy+54;);
+	};
+	Def.Quad{
+		InitCommand=cmd(diffuse,color("0.6,0.6,0.6,1"); zoomto, _screen.w, 2);
 		OnCommand=cmd(x,_screen.cx;y,_screen.cy+163;);
 	};
 	
