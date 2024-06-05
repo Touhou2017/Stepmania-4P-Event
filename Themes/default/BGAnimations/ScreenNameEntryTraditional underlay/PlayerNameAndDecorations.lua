@@ -14,9 +14,13 @@ local t = Def.ActorFrame{
 	Name="PlayerNameAndDecorations_"..pn,
 	InitCommand=function(self)
 		if Player == PLAYER_1 then
-			self:x(_screen.cx-160)
+			self:x(_screen.cx-320)
 		elseif Player == PLAYER_2 then
-			self:x(_screen.cx+160)
+			self:x(_screen.cx-110)
+		elseif Player == PLAYER_3 then
+			self:x(_screen.cx+110)
+		elseif Player == PLAYER_4 then
+			self:x(_screen.cx+320)
 		end
 		self:y(_screen.cy-20)
 	end,
