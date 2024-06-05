@@ -14,10 +14,10 @@ return Def.Actor{
 		-- so ensure that this is set correctly now
 		if #Players == 2 then
 			SL.Global.Gamestate.Style = "versus"
+		elseif #Players == 3 then
+			SL.Global.Gamestate.Style = "triple"
 		elseif #Players == 4 then
 			SL.Global.Gamestate.Style = "quad"
-		elseif #Players == 6 then
-			SL.Global.Gamestate.Style = "sextuple"
 		end
 
 		-- If we're in Casual mode, we want to reduce the number of judgments,
