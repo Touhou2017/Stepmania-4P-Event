@@ -89,6 +89,8 @@ af[#af+1] = Def.CourseContentsList {
 
 	CurrentTrailP1ChangedMessageCommand=function(self) self:playcommand("Set") end,
 	CurrentTrailP2ChangedMessageCommand=function(self) self:playcommand("Set") end,
+	CurrentTrailP3ChangedMessageCommand=function(self) self:playcommand("Set") end,
+	CurrentTrailP4ChangedMessageCommand=function(self) self:playcommand("Set") end,
 	SetCommand=function(self)
 
 		-- I have a very flimsy understanding of what most of these methods do,
@@ -156,10 +158,35 @@ af[#af+1] = Def.CourseContentsList {
 		Def.BitmapText{
 			Font="_miso",
 			InitCommand=function(self)
-				self:xy(114,0):horizalign(right)
+				self:xy(-76,0):horizalign(right)
 			end,
 			SetSongCommand=function(self, params)
 				if params.PlayerNumber ~= PLAYER_2 then return end
+
+				self:settext( params.Meter or "?" ):diffuse( CustomDifficultyToColor(params.Difficulty) )
+			end
+		}
+		-- PLAYER_3 song difficulty
+		Def.BitmapText{
+			Font="_miso",
+			InitCommand=function(self)
+				self:xy(18, 0):horizalign(right)
+			end,
+			SetSongCommand=function(self, params)
+				if params.PlayerNumber ~= PLAYER_3 then return end
+
+				self:settext( params.Meter or "?" ):diffuse( CustomDifficultyToColor(params.Difficulty) )
+			end
+		},
+
+		-- PLAYER_4 song difficulty
+		Def.BitmapText{
+			Font="_miso",
+			InitCommand=function(self)
+				self:xy(114,0):horizalign(right)
+			end,
+			SetSongCommand=function(self, params)
+				if params.PlayerNumber ~= PLAYER_4 then return end
 
 				self:settext( params.Meter or "?" ):diffuse( CustomDifficultyToColor(params.Difficulty) )
 			end
