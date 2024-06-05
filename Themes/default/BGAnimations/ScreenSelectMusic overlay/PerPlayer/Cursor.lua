@@ -22,8 +22,19 @@ return Def.Sprite{
 
 		elseif player == PLAYER_2 then
 			self:rotationz(180)
-			self:x(IsUsingWideScreen() and _screen.cx-28 or 276)
+			self:x(IsUsingWideScreen() and _screen.cx-220 or 92)
 			self:effectmagnitude(3,0,0)
+			
+		elseif player == PLAYER_3 then
+			self:rotationz(180)
+			self:x(IsUsingWideScreen() and _screen.cx-110 or 184)
+			self:effectmagnitude(3,0,0)
+			
+		elseif player == PLAYER_4 then
+			self:rotationz(180)
+			self:x(IsUsingWideScreen() and _screen.cx-10 or 276)
+			self:effectmagnitude(-3,0,0)
+			
 		end
 
 		self:effectperiod(1):effectoffset( -10 * GlobalOffsetSeconds)
@@ -39,8 +50,15 @@ return Def.Sprite{
 
 	CurrentStepsP1ChangedMessageCommand=cmd(queuecommand,"Set"),
 	CurrentTrailP1ChangedMessageCommand=cmd(queuecommand,"Set"),
+	
 	CurrentStepsP2ChangedMessageCommand=cmd(queuecommand,"Set"),
 	CurrentTrailP2ChangedMessageCommand=cmd(queuecommand,"Set"),
+	
+	CurrentStepsP3ChangedMessageCommand=cmd(queuecommand,"Set"),
+	CurrentTrailP3ChangedMessageCommand=cmd(queuecommand,"Set"),
+	
+	CurrentStepsP4ChangedMessageCommand=cmd(queuecommand,"Set"),
+	CurrentTrailP4ChangedMessageCommand=cmd(queuecommand,"Set"),
 
 	SetCommand=function(self)
 		local song = (GAMESTATE:IsCourseMode() and GAMESTATE:GetCurrentCourse()) or GAMESTATE:GetCurrentSong()
