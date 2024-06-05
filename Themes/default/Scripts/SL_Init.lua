@@ -8,7 +8,7 @@ local PlayerDefaults = {
 				Mini = "0%",
 				BackgroundFilter = "Off",
 				SpeedModType = "M",
-				SpeedMod = 250,
+				SpeedMod = 500,
 				Vocalization = "None",
 				Noteskin = nil,
 				HideTargets = false,
@@ -177,6 +177,27 @@ SL = {
 			TimingWindowSecondsMine=0.070000,
 			TimingWindowSecondsRoll=0.350000,
 		},
+		ITG = {
+			TimingWindowAdd=0.0015,
+			RegenComboAfterMiss=5,
+			MaxRegenComboAfterMiss=10,
+			MinTNSToHideNotes="TapNoteScore_W3",
+			MinTNSToScoreNotes=ThemePrefs.Get("RescoreEarlyHits") and "TapNoteScore_W3" or "TapNoteScore_None",
+			HarshHotLifePenalty=true,
+
+			PercentageScoring=true,
+			AllowW1="AllowW1_Everywhere",
+			SubSortByNumSteps=true,
+
+			TimingWindowSecondsW1=0.021500,
+			TimingWindowSecondsW2=0.043000,
+			TimingWindowSecondsW3=0.102000,
+			TimingWindowSecondsW4=0.135000,
+			TimingWindowSecondsW5=0.180000,
+			TimingWindowSecondsHold=0.320000,
+			TimingWindowSecondsMine=0.070000,
+			TimingWindowSecondsRoll=0.350000,
+		},
 	},
 	Metrics = {
 		Casual = {
@@ -303,6 +324,41 @@ SL = {
 			LifePercentChangeHeld=0,
 			LifePercentChangeHitMine=-0.04,
 		},
+		ITG = {
+			PercentScoreWeightW1=5,
+			PercentScoreWeightW2=4,
+			PercentScoreWeightW3=2,
+			PercentScoreWeightW4=0,
+			PercentScoreWeightW5=-6,
+			PercentScoreWeightMiss=-12,
+			PercentScoreWeightLetGo=0,
+			PercentScoreWeightHeld=IsGame("pump") and 0 or 5,
+			PercentScoreWeightHitMine=-6,
+			PercentScoreWeightCheckpointHit=0,
+
+			GradeWeightW1=5,
+			GradeWeightW2=4,
+			GradeWeightW3=2,
+			GradeWeightW4=0,
+			GradeWeightW5=-6,
+			GradeWeightMiss=-12,
+			GradeWeightLetGo=0,
+			GradeWeightHeld=IsGame("pump") and 0 or 5,
+			GradeWeightHitMine=-6,
+			GradeWeightCheckpointHit=0,
+
+			LifePercentChangeW1=0.008,
+			LifePercentChangeW2=0.008,
+			LifePercentChangeW3=0.004,
+			LifePercentChangeW4=0.000,
+			LifePercentChangeW5=-0.050,
+			LifePercentChangeMiss=-0.100,
+			LifePercentChangeLetGo=IsGame("pump") and 0.000 or -0.080,
+			LifePercentChangeHeld=IsGame("pump") and 0.000 or 0.008,
+			LifePercentChangeHitMine=-0.050,
+
+			InitialValue=0.5,
+		},
 	}
 }
 
@@ -310,7 +366,7 @@ SL = {
 -- Initialize preferences by calling this method.
 --  We typically do this from ./BGAnimations/ScreenTitleMenu underlay.lua
 --  so that preferences reset between each game cycle.
-
+	
 function InitializeSimplyLove()
 	SL.P1:initialize()
 	SL.P2:initialize()
