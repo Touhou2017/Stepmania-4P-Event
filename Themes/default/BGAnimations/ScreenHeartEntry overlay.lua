@@ -4,6 +4,8 @@
 local heart_xs = {
 	[PLAYER_1] = SCREEN_CENTER_X * 0.625,
 	[PLAYER_2] = SCREEN_CENTER_X * 1.375,
+	[PLAYER_3] = SCREEN_CENTER_X * 2.125,
+	[PLAYER_4] = SCREEN_CENTER_X * 2.875,
 }
 
 -- heart_entries is a table that will be used to store the numpads that the
