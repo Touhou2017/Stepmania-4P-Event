@@ -1,8 +1,12 @@
 local statsP1 = STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_1);
 local statsP2 = STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_2);
+local statsP3 = STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_3);
+local statsP4 = STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_4);
 
 local gradeP1 = statsP1:GetGrade();
 local gradeP2 = statsP2:GetGrade();
+local gradeP3 = statsP3:GetGrade();
+local gradeP4 = statsP4:GetGrade();
 
 local function failed(g)
 	if g == "Grade_Failed" then
@@ -16,15 +20,15 @@ end
 local img = "cleared text.png"
 
 -- if (only P1) and (P1 failed)
-if (GAMESTATE:IsHumanPlayer(PLAYER_1) and failed(gradeP1) and not GAMESTATE:IsHumanPlayer(PLAYER_2)) then
+if (GAMESTATE:IsHumanPlayer(PLAYER_1) and failed(gradeP1) and not GAMESTATE:IsHumanPlayer(PLAYER_2) and not GAMESTATE:IsHumanPlayer(PLAYER_3) and not GAMESTATE:IsHumanPlayer(PLAYER_4)) then
 	img = "failed text.png"
 	
 -- if (only P2) and (P2 failed)	
-elseif (GAMESTATE:IsHumanPlayer(PLAYER_2) and failed(gradeP2) and not GAMESTATE:IsHumanPlayer(PLAYER_1)) then
+elseif (GAMESTATE:IsHumanPlayer(PLAYER_2) and failed(gradeP2) and not GAMESTATE:IsHumanPlayer(PLAYER_1) and not GAMESTATE:IsHumanPlayer(PLAYER_3) and not GAMESTATE:IsHumanPlayer(PLAYER_4)) then
 	img = "failed text.png"
 
--- if (both P1 and P2) and (both P1 and P2 failed)	
-elseif (GAMESTATE:IsHumanPlayer(PLAYER_1) and GAMESTATE:IsHumanPlayer(PLAYER_2) and failed(gradeP1) and failed(gradeP2) ) then
+-- if (all Players) and (all players failed)	
+elseif (GAMESTATE:IsHumanPlayer(PLAYER_1) and GAMESTATE:IsHumanPlayer(PLAYER_2) and GAMESTATE:IsHumanPlayer(PLAYER_3) and GAMESTATE:IsHumanPlayer(PLAYER_4) and failed(gradeP1) and failed(gradeP2) and failed(gradeP3) and failed(gradeP4) ) then
 	img = "failed text.png"
 	
 end
