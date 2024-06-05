@@ -39,8 +39,9 @@ local SL_CustomPrefs =
 			THEME:GetString("ScreenSelectPlayMode", "Competitive"),
 			THEME:GetString("ScreenSelectPlayMode", "ECFA"),
 			THEME:GetString("ScreenSelectPlayMode", "StomperZ"),
+			THEME:GetString("ScreenSelectPlayMode", "ITG"),
 		},
-		Values 	= { "Casual", "Competitive", "ECFA", "StomperZ" }
+		Values 	= { "Casual", "Competitive", "ECFA", "StomperZ", "ITG" }
 	},
 	TimingWindowAdd = {
 		Default = 0,
@@ -49,16 +50,16 @@ local SL_CustomPrefs =
 	},
 	AutoStyle =
 	{
-		Default = "none",
+		Default = "quad",
 		Choices = {
 			THEME:GetString("ScreenSelectStyle", "None"),
 			THEME:GetString("ScreenSelectStyle", "Single"),
 			THEME:GetString("ScreenSelectStyle", "Versus"),
 			THEME:GetString("ScreenSelectStyle", "Double"),
-			THEME:GetString("ScreenSelectStyle", "Trio"),
+			THEME:GetString("ScreenSelectStyle", "Triple"),
 			THEME:GetString("ScreenSelectStyle", "Quad")
 		},
-		Values 	= { "none", "single", "versus", "double", "trio", "quad" }
+		Values 	= { "none", "single", "versus", "double", "triple", "quad" }
 	},
 	VisualTheme =
 	{
@@ -118,7 +119,7 @@ local SL_CustomPrefs =
 	-- Enable/Disable Certain Screens
 	AllowScreenSelectProfile =
 	{
-		Default = false,
+		Default = true,
 		Choices = { "Yes", "No" },
 		Values 	= { true, false }
 	},
