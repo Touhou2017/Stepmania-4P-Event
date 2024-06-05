@@ -27,19 +27,31 @@ for pn in ivalues(Players) do
 		InitCommand=function(self)
 			self:diffusealpha(0);
 			if pn == PLAYER_1 then
-				self:x(_screen.cx-350);
+				self:x(_screen.cx-320);
+				self:y(_screen.cy+50);
 			elseif pn == PLAYER_2 then
-				self:x(_screen.cx-225);
+				self:x(_screen.cx-110);
+				self:y(_screen.cy+50);
 			elseif pn == PLAYER_3 then
-				self:x(_screen.cx-100);
+				self:x(_screen.cx+110);
+				self:y(_screen.cy+50);
 			elseif pn == PLAYER_4 then
-				self:x(_screen.cx+25);
+				self:x(_screen.cx+320);
+				self:y(_screen.cy+50);
 			elseif pn == PLAYER_5 then
-				self:x(_screen.cx+150);
+				self:x(_screen.cx-320);
+				self:y(_screen.cy+42069);
 			elseif pn == PLAYER_6 then
-				self:x(_screen.cx+275);
+				self:x(_screen.cx-110);
+				self:y(_screen.cy+42069);
+			elseif pn == PLAYER_7 then
+				self:x(_screen.cx+110);
+				self:y(_screen.cy+42069);
+			elseif pn == PLAYER_8 then
+				self:x(_screen.cx+320);
+				self:y(_screen.cy+42069);
 			end
-			self:y(_screen.cy);
+
 		end;
 		OnCommand=cmd(linear,0.3;diffusealpha,1);
 		OffCommand=cmd(linear,0.2;diffusealpha,0);
