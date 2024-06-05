@@ -29,16 +29,18 @@ for player in ivalues(Players) do
 end
 
 
-if GAMESTATE:IsPlayerEnabled(PLAYER_1) and GAMESTATE:IsPlayerEnabled(PLAYER_2) then
+if GAMESTATE:IsPlayerEnabled(PLAYER_1) and GAMESTATE:IsPlayerEnabled(PLAYER_2) and GAMESTATE:IsPlayerEnabled(PLAYER_3) and GAMESTATE:IsPlayerEnabled(PLAYER_4) then
 	t[#t+1] = LoadActor("./Shared/WhoIsCurrentlyWinning.lua")
 end
 
 t[#t+1] = LoadActor("./Shared/BPMDisplay.lua")
 
 --Player column seperators
+t[#t+1] = Def.Quad{InitCommand=cmd(diffusealpha,0;xy,_screen.w*0.00,_screen.h*0.6;zoomto,_screen.w*0.015,_screen.h*0.867;linear,1;diffuse,0,0,0,0.35)}
 t[#t+1] = Def.Quad{InitCommand=cmd(diffusealpha,0;xy,_screen.w*0.25,_screen.h*0.6;zoomto,_screen.w*0.015,_screen.h*0.867;linear,1;diffuse,0,0,0,0.20)}
-t[#t+1] = Def.Quad{InitCommand=cmd(diffusealpha,0;xy,_screen.w*0.5,_screen.h*0.6;zoomto,_screen.w*0.015,_screen.h*0.867;linear,1;diffuse,0,0,0,0.20)}
+t[#t+1] = Def.Quad{InitCommand=cmd(diffusealpha,0;xy,_screen.w*0.50,_screen.h*0.6;zoomto,_screen.w*0.015,_screen.h*0.867;linear,1;diffuse,0,0,0,0.20)}
 t[#t+1] = Def.Quad{InitCommand=cmd(diffusealpha,0;xy,_screen.w*0.75,_screen.h*0.6;zoomto,_screen.w*0.015,_screen.h*0.867;linear,1;diffuse,0,0,0,0.20)}
+t[#t+1] = Def.Quad{InitCommand=cmd(diffusealpha,0;xy,_screen.w*1.00,_screen.h*0.6;zoomto,_screen.w*0.015,_screen.h*0.867;linear,1;diffuse,0,0,0,0.20)}
 
 --Squishing the player actors so that they wont strech on dual monitor
 -- local players = {}
